@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSets>
+    <DataSet Name="VisualKpiSummary">
+      <Fields>
+        <Field Name="Region">
+          <DataField>Region</DataField>
+        </Field>
+        <Field Name="Score">
+          <DataField>Score</DataField>
+        </Field>
+        <Field Name="Actual">
+          <DataField>Actual</DataField>
+        </Field>
+        <Field Name="Target">
+          <DataField>Target</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Textbox Name="Title">
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Radial gauge — needle and performance ranges</Value>
+                    <Style>
+                      <FontSize>17pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>#334155</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+              </Paragraph>
+            </Paragraphs>
+            <Top>0mm</Top>
+            <Width>190mm</Width>
+            <Height>12mm</Height>
+            <Style>
+              <BackgroundColor>White</BackgroundColor>
+              <PaddingLeft>2mm</PaddingLeft>
+              <PaddingTop>1mm</PaddingTop>
+            </Style>
+          </Textbox>
+          <GaugePanel Name="Performance">
+            <RadialGauges>
+              <RadialGauge Name="Gauge">
+                <Left>0</Left>
+                <Top>0</Top>
+                <Width>100</Width>
+                <Height>100</Height>
+                <GaugeScales>
+                  <RadialScale Name="GaugeScale">
+                    <MinimumValue>
+                      <Value>0</Value>
+                    </MinimumValue>
+                    <MaximumValue>
+                      <Value>100</Value>
+                    </MaximumValue>
+                    <Interval>20</Interval>
+                    <ScaleRanges>
+                      <ScaleRange Name="Low">
+                        <StartValue>
+                          <Value>0</Value>
+                        </StartValue>
+                        <EndValue>
+                          <Value>50</Value>
+                        </EndValue>
+                        <Style>
+                          <BackgroundColor>#EF4444</BackgroundColor>
+                        </Style>
+                      </ScaleRange>
+                      <ScaleRange Name="Watch">
+                        <StartValue>
+                          <Value>50</Value>
+                        </StartValue>
+                        <EndValue>
+                          <Value>80</Value>
+                        </EndValue>
+                        <Style>
+                          <BackgroundColor>#F59E0B</BackgroundColor>
+                        </Style>
+                      </ScaleRange>
+                      <ScaleRange Name="Good">
+                        <StartValue>
+                          <Value>80</Value>
+                        </StartValue>
+                        <EndValue>
+                          <Value>100</Value>
+                        </EndValue>
+                        <Style>
+                          <BackgroundColor>#10B981</BackgroundColor>
+                        </Style>
+                      </ScaleRange>
+                    </ScaleRanges>
+                    <StartAngle>90</StartAngle>
+                    <SweepAngle>180</SweepAngle>
+                    <GaugePointers>
+                      <RadialPointer Name="GaugePointer">
+                        <GaugeInputValue>
+                          <Value>=Avg(Fields!Score.Value)</Value>
+                        </GaugeInputValue>
+                        <Type>Needle</Type>
+                        <Style>
+                          <BackgroundColor>#0F766E</BackgroundColor>
+                        </Style>
+                      </RadialPointer>
+                    </GaugePointers>
+                  </RadialScale>
+                </GaugeScales>
+              </RadialGauge>
+            </RadialGauges>
+            <GaugeLabels>
+              <GaugeLabel Name="Caption">
+                <Top>84</Top>
+                <Height>12</Height>
+                <Text>Average score: 65 / 100</Text>
+              </GaugeLabel>
+            </GaugeLabels>
+            <DataSetName>VisualKpiSummary</DataSetName>
+            <Top>18mm</Top>
+            <Width>180mm</Width>
+            <Height>90mm</Height>
+          </GaugePanel>
+        </ReportItems>
+        <Height>120mm</Height>
+      </Body>
+      <Width>190mm</Width>
+      <Page>
+        <PageWidth>210mm</PageWidth>
+        <PageHeight>160mm</PageHeight>
+        <LeftMargin>10mm</LeftMargin>
+        <RightMargin>10mm</RightMargin>
+        <TopMargin>8mm</TopMargin>
+        <BottomMargin>8mm</BottomMargin>
+      </Page>
+    </ReportSection>
+  </ReportSections>
+</Report>

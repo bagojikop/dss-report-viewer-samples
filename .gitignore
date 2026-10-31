@@ -1,0 +1,15 @@
+node_modules/
+bin/
+obj/
+dist/
+.angular/
+out-tsc/
+.artifacts/
+*.log
+*.tsbuildinfo
+web/src/app/reports/sample-sources.generated.ts
+.vs/
+.vscode/
+.env
+.env.*
+!.env.example

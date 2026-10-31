@@ -1,0 +1,20 @@
+[
+  {
+    "Region": "North",
+    "Score": 35,
+    "Actual": 780,
+    "Target": 1000
+  },
+  {
+    "Region": "South",
+    "Score": 65,
+    "Actual": 1320,
+    "Target": 2000
+  },
+  {
+    "Region": "West",
+    "Score": 95,
+    "Actual": 450,
+    "Target": 1000
+  }
+]

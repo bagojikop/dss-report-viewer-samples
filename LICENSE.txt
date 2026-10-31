@@ -1,0 +1,20 @@
+DSS REPORTING SAMPLE APPLICATION LICENSE
+Copyright (c) 2026 bagojikop. All rights reserved.
+
+You may use, copy, and modify the sample application source in this repository,
+without a license fee, to develop personal, internal business, or commercial
+applications. You may distribute the resulting applications and bundle the
+reporting library DLLs subject to the licenses provided with those packages.
+Retain this notice when copying sample source. You may not resell or sublicense
+this sample repository as a standalone toolkit without written permission.
+
+This grant applies to the sample source only. It does not grant source-code
+rights to the separately distributed proprietary reporting libraries. Those
+libraries and all third-party dependencies retain their own licenses. No
+trademark rights are granted. All other rights are reserved.
+
+THE SAMPLES ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+NON-INFRINGEMENT. USE AT YOUR OWN RISK. TO THE MAXIMUM EXTENT PERMITTED BY LAW,
+THE COPYRIGHT HOLDER AND CONTRIBUTORS ARE NOT LIABLE FOR CLAIMS, DAMAGES, OR
+OTHER LIABILITY ARISING OUT OF OR IN CONNECTION WITH THE SAMPLES OR THEIR USE.

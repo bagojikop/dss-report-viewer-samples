@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSets>
+    <DataSet Name="VisualMapLocations">
+      <Fields>
+        <Field Name="Label">
+          <DataField>Label</DataField>
+        </Field>
+        <Field Name="Orders">
+          <DataField>Orders</DataField>
+        </Field>
+        <Field Name="Geometry">
+          <DataField>Geometry</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Textbox Name="Title">
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Map — proportional depot markers</Value>
+                    <Style>
+                      <FontSize>17pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>#334155</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+              </Paragraph>
+            </Paragraphs>
+            <Top>0mm</Top>
+            <Width>190mm</Width>
+            <Height>12mm</Height>
+            <Style>
+              <BackgroundColor>White</BackgroundColor>
+              <PaddingLeft>2mm</PaddingLeft>
+              <PaddingTop>1mm</PaddingTop>
+            </Style>
+          </Textbox>
+          <Map Name="DepotMap">
+            <MapViewport>
+              <MapCoordinateSystem>Planar</MapCoordinateSystem>
+            </MapViewport>
+            <MapLayers>
+              <MapPointLayer Name="Depot order volumes">
+                <MapSpatialDataSet>
+                  <DataSetName>VisualMapLocations</DataSetName>
+                  <SpatialField>Geometry</SpatialField>
+                </MapSpatialDataSet>
+                <MapMarkerTemplate>
+                  <Label>=Fields!Label.Value</Label>
+                  <Size>12pt</Size>
+                  <MapMarker>
+                    <MapMarkerStyle>Circle</MapMarkerStyle>
+                  </MapMarker>
+                  <Style>
+                    <BackgroundColor>#F59E0B</BackgroundColor>
+                  </Style>
+                </MapMarkerTemplate>
+                <MapPointRules>
+                  <MapSizeRule>
+                    <DataValue>=Fields!Orders.Value</DataValue>
+                    <StartSize>12pt</StartSize>
+                    <EndSize>28pt</EndSize>
+                  </MapSizeRule>
+                </MapPointRules>
+              </MapPointLayer>
+            </MapLayers>
+            <MapTitles>
+              <MapTitle Name="Caption">
+                <Text>Fictional service areas — demonstration coordinates</Text>
+              </MapTitle>
+            </MapTitles>
+            <Top>18mm</Top>
+            <Width>185mm</Width>
+            <Height>105mm</Height>
+            <Style>
+              <BackgroundColor>#F8FAFC</BackgroundColor>
+            </Style>
+          </Map>
+        </ReportItems>
+        <Height>125mm</Height>
+      </Body>
+      <Width>190mm</Width>
+      <Page>
+        <PageWidth>210mm</PageWidth>
+        <PageHeight>160mm</PageHeight>
+        <LeftMargin>10mm</LeftMargin>
+        <RightMargin>10mm</RightMargin>
+        <TopMargin>8mm</TopMargin>
+        <BottomMargin>8mm</BottomMargin>
+      </Page>
+    </ReportSection>
+  </ReportSections>
+</Report>

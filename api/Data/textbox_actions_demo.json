@@ -1,0 +1,5 @@
+[
+  {"InvoiceId":1001,"InvoiceNo":"DEMO-INV-001","FirmId":1,"CustomerName":"Demo Customer 001","Amount":1250.50},
+  {"InvoiceId":1002,"InvoiceNo":"DEMO-INV-002","FirmId":2,"CustomerName":"Demo Trading & Co / North? #2","Amount":2890.75},
+  {"InvoiceId":1003,"InvoiceNo":"DEMO-INV-003","FirmId":1,"CustomerName":"Demo Customer 003","Amount":640.00}
+]

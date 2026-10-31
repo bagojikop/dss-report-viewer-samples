@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
+  <ReportParameters>
+    <ReportParameter Name="CustomerName">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value />
+        </Values>
+      </DefaultValue>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>CustomerName</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="InvoiceId">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value />
+        </Values>
+      </DefaultValue>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>InvoiceId</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Amount">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value />
+        </Values>
+      </DefaultValue>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Amount</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Textbox Name="CustomerTitle">
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Customer summary</Value>
+                  </TextRun>
+                </TextRuns>
+              </Paragraph>
+            </Paragraphs>
+            <Top>0mm</Top>
+            <Width>185mm</Width>
+            <Height>10mm</Height>
+          </Textbox>
+          <Textbox Name="CustomerName">
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>="Customer: " &amp; Parameters!CustomerName.Value</Value>
+                  </TextRun>
+                </TextRuns>
+              </Paragraph>
+            </Paragraphs>
+            <Top>18mm</Top>
+            <Width>185mm</Width>
+            <Height>10mm</Height>
+          </Textbox>
+          <Textbox Name="CustomerInvoice">
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>="Invoice ID: " &amp; Parameters!InvoiceId.Value</Value>
+                  </TextRun>
+                </TextRuns>
+              </Paragraph>
+            </Paragraphs>
+            <Top>32mm</Top>
+            <Width>185mm</Width>
+            <Height>10mm</Height>
+          </Textbox>
+          <Textbox Name="CustomerAmount">
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>="Invoice amount: " &amp; Parameters!Amount.Value</Value>
+                  </TextRun>
+                </TextRuns>
+              </Paragraph>
+            </Paragraphs>
+            <Top>46mm</Top>
+            <Width>185mm</Width>
+            <Height>10mm</Height>
+          </Textbox>
+        </ReportItems>
+        <Height>70mm</Height>
+      </Body>
+      <Width>190mm</Width>
+      <Page>
+        <PageWidth>210mm</PageWidth>
+        <PageHeight>148mm</PageHeight>
+        <LeftMargin>10mm</LeftMargin>
+        <RightMargin>10mm</RightMargin>
+        <TopMargin>10mm</TopMargin>
+        <BottomMargin>10mm</BottomMargin>
+      </Page>
+    </ReportSection>
+  </ReportSections>
+</Report>

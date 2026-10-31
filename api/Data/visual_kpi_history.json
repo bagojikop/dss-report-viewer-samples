@@ -1,0 +1,104 @@
+[
+  {
+    "Region": "North",
+    "Period": "April",
+    "PeriodIndex": 1,
+    "Amount": 90
+  },
+  {
+    "Region": "North",
+    "Period": "May",
+    "PeriodIndex": 2,
+    "Amount": 140
+  },
+  {
+    "Region": "North",
+    "Period": "June",
+    "PeriodIndex": 3,
+    "Amount": 130
+  },
+  {
+    "Region": "North",
+    "Period": "July",
+    "PeriodIndex": 4,
+    "Amount": 215
+  },
+  {
+    "Region": "North",
+    "Period": "August",
+    "PeriodIndex": 5,
+    "Amount": 200
+  },
+  {
+    "Region": "North",
+    "Period": "September",
+    "PeriodIndex": 6,
+    "Amount": 285
+  },
+  {
+    "Region": "South",
+    "Period": "April",
+    "PeriodIndex": 1,
+    "Amount": 180
+  },
+  {
+    "Region": "South",
+    "Period": "May",
+    "PeriodIndex": 2,
+    "Amount": 230
+  },
+  {
+    "Region": "South",
+    "Period": "June",
+    "PeriodIndex": 3,
+    "Amount": 220
+  },
+  {
+    "Region": "South",
+    "Period": "July",
+    "PeriodIndex": 4,
+    "Amount": 305
+  },
+  {
+    "Region": "South",
+    "Period": "August",
+    "PeriodIndex": 5,
+    "Amount": 290
+  },
+  {
+    "Region": "South",
+    "Period": "September",
+    "PeriodIndex": 6,
+    "Amount": 375
+  },
+  {
+    "Region": "West",
+    "Period": "April",
+    "PeriodIndex": 1,
+    "Amount": 270
+  },
+  {
+    "Region": "West",
+    "Period": "May",
+    "PeriodIndex": 2,
+    "Amount": 320
+  },
+  {
+    "Region": "West",
+    "Period": "July",
+    "PeriodIndex": 4,
+    "Amount": 395
+  },
+  {
+    "Region": "West",
+    "Period": "August",
+    "PeriodIndex": 5,
+    "Amount": 380
+  },
+  {
+    "Region": "West",
+    "Period": "September",
+    "PeriodIndex": 6,
+    "Amount": 465
+  }
+]

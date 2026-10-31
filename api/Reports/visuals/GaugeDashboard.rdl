@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSets>
+    <DataSet Name="VisualKpiSummary">
+      <Fields>
+        <Field Name="Region">
+          <DataField>Region</DataField>
+        </Field>
+        <Field Name="Score">
+          <DataField>Score</DataField>
+        </Field>
+        <Field Name="Actual">
+          <DataField>Actual</DataField>
+        </Field>
+        <Field Name="Target">
+          <DataField>Target</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Textbox Name="Title">
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Gauge panel with radial, linear, numeric and state indicators</Value>
+                    <Style>
+                      <FontSize>17pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>#334155</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+              </Paragraph>
+            </Paragraphs>
+            <Top>0mm</Top>
+            <Width>190mm</Width>
+            <Height>12mm</Height>
+            <Style>
+              <BackgroundColor>White</BackgroundColor>
+              <PaddingLeft>2mm</PaddingLeft>
+              <PaddingTop>1mm</PaddingTop>
+            </Style>
+          </Textbox>
+          <GaugePanel Name="GaugeDashboard">
+            <RadialGauges>
+              <RadialGauge Name="Gauge">
+                <Left>0</Left>
+                <Top>0</Top>
+                <Width>55</Width>
+                <Height>77</Height>
+                <GaugeScales>
+                  <RadialScale Name="GaugeScale">
+                    <MinimumValue>
+                      <Value>0</Value>
+                    </MinimumValue>
+                    <MaximumValue>
+                      <Value>100</Value>
+                    </MaximumValue>
+                    <Interval>20</Interval>
+                    <ScaleRanges>
+                      <ScaleRange Name="Low">
+                        <StartValue>
+                          <Value>0</Value>
+                        </StartValue>
+                        <EndValue>
+                          <Value>50</Value>
+                        </EndValue>
+                        <Style>
+                          <BackgroundColor>#EF4444</BackgroundColor>
+                        </Style>
+                      </ScaleRange>
+                      <ScaleRange Name="Watch">
+                        <StartValue>
+                          <Value>50</Value>
+                        </StartValue>
+                        <EndValue>
+                          <Value>80</Value>
+                        </EndValue>
+                        <Style>
+                          <BackgroundColor>#F59E0B</BackgroundColor>
+                        </Style>
+                      </ScaleRange>
+                      <ScaleRange Name="Good">
+                        <StartValue>
+                          <Value>80</Value>
+                        </StartValue>
+                        <EndValue>
+                          <Value>100</Value>
+                        </EndValue>
+                        <Style>
+                          <BackgroundColor>#10B981</BackgroundColor>
+                        </Style>
+                      </ScaleRange>
+                    </ScaleRanges>
+                    <StartAngle>90</StartAngle>
+                    <SweepAngle>180</SweepAngle>
+                    <GaugePointers>
+                      <RadialPointer Name="GaugePointer">
+                        <GaugeInputValue>
+                          <Value>=Avg(Fields!Score.Value)</Value>
+                        </GaugeInputValue>
+                        <Type>Needle</Type>
+                        <Style>
+                          <BackgroundColor>#0F766E</BackgroundColor>
+                        </Style>
+                      </RadialPointer>
+                    </GaugePointers>
+                  </RadialScale>
+                </GaugeScales>
+              </RadialGauge>
+            </RadialGauges>
+            <LinearGauges>
+              <LinearGauge Name="Linear">
+                <Left>58</Left>
+                <Top>18</Top>
+                <Width>40</Width>
+                <Height>40</Height>
+                <Orientation>Horizontal</Orientation>
+                <GaugeScales>
+                  <LinearScale Name="LinearScale">
+                    <MinimumValue>
+                      <Value>0</Value>
+                    </MinimumValue>
+                    <MaximumValue>
+                      <Value>100</Value>
+                    </MaximumValue>
+                    <Interval>20</Interval>
+                    <ScaleRanges>
+                      <ScaleRange Name="Low">
+                        <StartValue>
+                          <Value>0</Value>
+                        </StartValue>
+                        <EndValue>
+                          <Value>50</Value>
+                        </EndValue>
+                        <Style>
+                          <BackgroundColor>#EF4444</BackgroundColor>
+                        </Style>
+                      </ScaleRange>
+                      <ScaleRange Name="Watch">
+                        <StartValue>
+                          <Value>50</Value>
+                        </StartValue>
+                        <EndValue>
+                          <Value>80</Value>
+                        </EndValue>
+                        <Style>
+                          <BackgroundColor>#F59E0B</BackgroundColor>
+                        </Style>
+                      </ScaleRange>
+                      <ScaleRange Name="Good">
+                        <StartValue>
+                          <Value>80</Value>
+                        </StartValue>
+                        <EndValue>
+                          <Value>100</Value>
+                        </EndValue>
+                        <Style>
+                          <BackgroundColor>#10B981</BackgroundColor>
+                        </Style>
+                      </ScaleRange>
+                    </ScaleRanges>
+                    <GaugePointers>
+                      <LinearPointer Name="LinearPointer">
+                        <GaugeInputValue>
+                          <Value>=Avg(Fields!Score.Value)</Value>
+                        </GaugeInputValue>
+                        <Type>Bar</Type>
+                        <Style>
+                          <BackgroundColor>#0F766E</BackgroundColor>
+                        </Style>
+                      </LinearPointer>
+                    </GaugePointers>
+                  </LinearScale>
+                </GaugeScales>
+              </LinearGauge>
+            </LinearGauges>
+            <StateIndicators>
+              <StateIndicator Name="DashboardStatus">
+                <Left>64</Left>
+                <Top>59</Top>
+                <Width>12</Width>
+                <Height>21</Height>
+                <GaugeInputValue>
+                  <Value>=Avg(Fields!Score.Value)</Value>
+                </GaugeInputValue>
+                <TransformationType>None</TransformationType>
+                <MinimumValue>
+                  <Value>0</Value>
+                </MinimumValue>
+                <MaximumValue>
+                  <Value>100</Value>
+                </MaximumValue>
+                <IndicatorStates>
+                  <IndicatorState Name="Low">
+                    <StartValue>
+                      <Value>0</Value>
+                    </StartValue>
+                    <EndValue>
+                      <Value>50</Value>
+                    </EndValue>
+                    <Color>#EF4444</Color>
+                    <ScaleFactor>1</ScaleFactor>
+                    <IndicatorStyle>Circle</IndicatorStyle>
+                  </IndicatorState>
+                  <IndicatorState Name="Watch">
+                    <StartValue>
+                      <Value>50</Value>
+                    </StartValue>
+                    <EndValue>
+                      <Value>80</Value>
+                    </EndValue>
+                    <Color>#F59E0B</Color>
+                    <ScaleFactor>1</ScaleFactor>
+                    <IndicatorStyle>Circle</IndicatorStyle>
+                  </IndicatorState>
+                  <IndicatorState Name="Good">
+                    <StartValue>
+                      <Value>80</Value>
+                    </StartValue>
+                    <EndValue>
+                      <Value>100</Value>
+                    </EndValue>
+                    <Color>#10B981</Color>
+                    <ScaleFactor>1</ScaleFactor>
+                    <IndicatorStyle>Circle</IndicatorStyle>
+                  </IndicatorState>
+                </IndicatorStates>
+              </StateIndicator>
+            </StateIndicators>
+            <NumericIndicators>
+              <NumericIndicator Name="AverageScore">
+                <Left>78</Left>
+                <Top>61</Top>
+                <Width>18</Width>
+                <Height>16</Height>
+                <GaugeInputValue>
+                  <Value>=Avg(Fields!Score.Value)</Value>
+                </GaugeInputValue>
+                <DecimalDigits>1</DecimalDigits>
+                <DigitColor>#5EEAD4</DigitColor>
+              </NumericIndicator>
+            </NumericIndicators>
+            <GaugeLabels>
+              <GaugeLabel Name="PanelTitle">
+                <Top>0</Top>
+                <Height>12</Height>
+                <Text>Regional performance — shared KPI input</Text>
+              </GaugeLabel>
+              <GaugeLabel Name="PanelNote">
+                <Top>83</Top>
+                <Height>12</Height>
+                <Text>Red 0–50 | Amber 50–80 | Green 80–100</Text>
+              </GaugeLabel>
+            </GaugeLabels>
+            <DataSetName>VisualKpiSummary</DataSetName>
+            <Top>18mm</Top>
+            <Width>180mm</Width>
+            <Height>100mm</Height>
+          </GaugePanel>
+        </ReportItems>
+        <Height>120mm</Height>
+      </Body>
+      <Width>190mm</Width>
+      <Page>
+        <PageWidth>210mm</PageWidth>
+        <PageHeight>160mm</PageHeight>
+        <LeftMargin>10mm</LeftMargin>
+        <RightMargin>10mm</RightMargin>
+        <TopMargin>8mm</TopMargin>
+        <BottomMargin>8mm</BottomMargin>
+      </Page>
+    </ReportSection>
+  </ReportSections>
+</Report>
