@@ -2,6 +2,8 @@
 
 A standalone sample website for the published DSS reporting packages. It contains **sample application source and fictional data only**. The report engine, QR/barcode implementation and Angular viewer library source are not included.
 
+**[ReportViewer integration guide](docs/report-viewer-integration.md)** ? API setup, Angular installation, parameters, report tabs, and modal actions.
+
 ## Packages
 
 - npm: `@bagojikop/report-viewer` **0.1.14**
