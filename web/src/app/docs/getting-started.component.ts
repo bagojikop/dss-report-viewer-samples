@@ -1,55 +1,69 @@
-import {ReportPathGuideComponent} from './report-path-guide.component';
-import {QueryMapGuideComponent} from './query-map-guide.component';
 import {Component} from '@angular/core';
 import {RouterLink} from '@angular/router';
 import {DocCodeComponent} from './doc-code.component';
-@Component({selector:'app-getting-started',standalone:true,imports:[RouterLink,DocCodeComponent,QueryMapGuideComponent,ReportPathGuideComponent],templateUrl:'./getting-started.component.html',styleUrl:'./getting-started.component.css'})
+@Component({selector:'app-getting-started',standalone:true,imports:[RouterLink,DocCodeComponent],templateUrl:'./getting-started.component.html',styleUrl:'./getting-started.component.css'})
 export class GettingStartedComponent {
- path:'existing'|'new'='new';
+ path:'existing'|'new'='existing';
  pathKey(event:KeyboardEvent,next:'existing'|'new'){
   if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
-  event.preventDefault();this.path=event.key==='Home'?'new':event.key==='End'?'existing':next;
+  event.preventDefault();this.path=event.key==='Home'?'existing':event.key==='End'?'new':next;
   document.getElementById(this.path+'-path-tab')?.focus();
  }
  navigateSection(event:MouseEvent){
   const anchor=(event.target as Element)?.closest('a[href^="#"]');
   const id=anchor?.getAttribute('href')?.slice(1);
-  if(id){event.preventDefault();if(id==='web-setup'||id==='api-setup')this.path='new';requestAnimationFrame(()=>document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'}));}
+  if(id){event.preventDefault();document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
  }
- readonly prerequisites=[{"title": ".NET 9 SDK", "detail": "Build and publish the reporting API.", "tag": "BACKEND"}, {"title": "Node.js 24.15+", "detail": "Use Node 24.15+ in the 24.x line for these samples.", "tag": "TOOLING"}, {"title": "Angular 22", "detail": "Host the standalone report viewer.", "tag": "FRONTEND"}];
- readonly examples=[{"name": "Invoice", "detail": "Document layout, QR codes, and exports.", "path": "/reports/invoice", "icon": "01"}, {"name": "Charts", "detail": "Columns, bars, areas, lines, and more.", "path": "/reports/charts", "icon": "02"}, {"name": "Gauges & maps", "detail": "KPIs, indicators, and geographic data.", "path": "/reports/visuals", "icon": "03"}, {"name": "Report actions", "detail": "Open forms in modals or reports in tabs.", "path": "/reports/textbox-actions", "icon": "04"}];
- readonly endpoints=[["GET", "/api/reports", "List report templates"], ["GET", "/api/reports/definition/{report}", "Inspect parameters and metadata"], ["POST", "/api/reports/render/{report}", "Return the report layout"], ["POST", "/api/reports/pdf/{report}", "Download a PDF"]];
- readonly mappingRows=[["Template", "Reports/drillthrough/InvoiceDetails.rdl", "The API reads this file under ReportRoot."], ["Report name", "drillthrough/InvoiceDetails.rdl", "Use this relative name in Angular and API routes."], ["Dataset", "TextboxActions", "Must match the dataset name inside the RDL."], ["JSON file", "textbox_actions_demo.json", "Selected by jsonFile in report-query-map.json; stored under Data."], ["Parameter", "InvoiceId", "Declared in the RDL and passed as a string."]];
- readonly issues=[["Report is not listed", "Check ReportRoot, template paths, and published report files."], ["Report is empty", "Match dataset names and field names; check the parameter values and report filters."], ["Browser cannot call the API", "Check the configured URL, HTTPS, and the allowed CORS origin."], ["A refreshed page returns 404", "Configure the web host to serve index.html for Angular application routes."], ["Settings changes do not appear", "Edit aa.config.json beside the deployed index.html, reload, and check host/CDN caching."]];
- readonly cloneSample="git clone https://github.com/bagojikop/dss-report-viewer-samples.git\ncd dss-report-viewer-samples";
- readonly apiRun="dotnet restore api\ndotnet run --project api --urls http://localhost:5000";
- readonly webRun="cd web\nnpm.cmd install\nnpm.cmd start";
- readonly newApi="dotnet new web -n MyReportApi -f net9.0\ncd MyReportApi\ndotnet add package Bagojikop.Dss.Reporting.AspNetCore --version 0.1.23";
- readonly program="using Dss.Reporting;\n\nvar builder = WebApplication.CreateBuilder(args);\nbuilder.Services.AddDssReporting();\nvar origins = builder.Configuration.GetSection(\"Cors:Origins\").Get<string[]>()\n    ?? [\"http://localhost:4200\"];\nbuilder.Services.AddCors(options => options.AddPolicy(\"web\", policy =>\n    policy.WithOrigins(origins)\n          .AllowAnyHeader().AllowAnyMethod()\n          .WithExposedHeaders(\"X-Report-Warnings\")));\n\nvar app = builder.Build();\napp.UseCors(\"web\");\napp.MapControllers();\napp.Run();";
- readonly copyData="# Run in MyReportApi. Requires unified-map package 0.1.23 or later.\ngit clone https://github.com/bagojikop/dss-report-viewer-samples.git ../dss-report-viewer-samples\nNew-Item -ItemType Directory -Force Reports/drillthrough, Data\nCopy-Item ../dss-report-viewer-samples/api/Reports/drillthrough/*.rdl Reports/drillthrough/\nCopy-Item ../dss-report-viewer-samples/api/Data/textbox_actions_demo.json Data/\nCopy-Item ../dss-report-viewer-samples/api/report-query-map.json .\ndotnet run --urls http://localhost:5000";
- readonly settings="{\n  \"ReportRoot\": \"Reports\",\n  \"ReportDataRoot\": \"Data\",\n  \"ReportSqlRoot\": \"Sql\",\n  \"Cors\": {\n    \"Origins\": [\n      \"http://localhost:4200\"\n    ]\n  }\n}";
- readonly folderLayout="MyReportApi/\n  Program.cs\n  appsettings.json\n  report-query-map.json\n  Reports/\n    drillthrough/\n      Invoices.rdl\n      InvoiceDetails.rdl\n      CustomerSummary.rdl\n  Data/\n    textbox_actions_demo.json";
- readonly newWeb="# Open a second terminal in the folder containing MyReportApi.\nnpx.cmd @angular/cli@22 new my-report-web --standalone --routing --style=css\ncd my-report-web\nnpm.cmd install @bagojikop/report-viewer";
- readonly runtimeSettings="{\n  \"reportApiUrl\": \"http://localhost:5000/api/reports\"\n}";
- readonly bootstrap="import {bootstrapApplication} from '@angular/platform-browser';\nimport {provideHttpClient} from '@angular/common/http';\nimport {Component, InjectionToken, inject} from '@angular/core';\nimport {DssReportViewerComponent} from '@bagojikop/report-viewer';\n\nconst REPORT_API_URL = new InjectionToken<string>('REPORT_API_URL');\n\n@Component({\n  selector: 'app-root',\n  standalone: true,\n  imports: [DssReportViewerComponent],\n  template: `<dss-report-viewer\n    [apiUrl]=\"apiUrl\"\n    reportName=\"drillthrough/InvoiceDetails.rdl\"\n    [reportParameters]=\"parameters\"\n    height=\"100dvh\" />`,\n})\nclass AppComponent {\n  readonly apiUrl = inject(REPORT_API_URL);\n  parameters: Record<string, string> = {InvoiceId: '1002'};\n}\n\nasync function start() {\n  const response = await fetch(new URL('aa.config.json', document.baseURI), {\n    cache: 'no-store',\n  });\n  if (!response.ok) throw new Error('Could not load aa.config.json');\n  const settings = await response.json();\n  if (typeof settings.reportApiUrl !== 'string' || !settings.reportApiUrl.trim()) {\n    throw new Error('Configure reportApiUrl in aa.config.json');\n  }\n  await bootstrapApplication(AppComponent, {\n    providers: [\n      provideHttpClient(),\n      {provide: REPORT_API_URL, useValue: settings.reportApiUrl.trim()},\n    ],\n  });\n}\nstart().catch(console.error);";
- readonly checkApi="Invoke-RestMethod http://localhost:5000/api/reports\n# Expected: a catalog containing drillthrough/InvoiceDetails.rdl\n\nInvoke-RestMethod http://localhost:5000/api/reports/definition/drillthrough/InvoiceDetails.rdl";
- readonly renderRequest="$body = @{\n  parameters = @{ InvoiceId = '1002' }\n  layout = 'paginated'\n} | ConvertTo-Json\n\nInvoke-RestMethod `\n  -Uri http://localhost:5000/api/reports/render/drillthrough/InvoiceDetails.rdl `\n  -Method Post -ContentType 'application/json' -Body $body\n\nInvoke-WebRequest `\n  -Uri http://localhost:5000/api/reports/pdf/drillthrough/InvoiceDetails.rdl `\n  -Method Post -ContentType 'application/json' -Body $body `\n  -OutFile Invoice_1002.pdf";
- readonly changeParameters="// In AppComponent: replace the object to reload the viewer.\nshowInvoice(invoiceId: string) {\n  this.parameters = {...this.parameters, InvoiceId: invoiceId};\n}";
- readonly publishFiles="<!-- Add inside MyReportApi.csproj, under <Project>. -->\n<ItemGroup>\n  <None Update=\"Reports/**/*.rdl;Reports/**/*.rdlc;Sql/**/*.sql\"\n        CopyToOutputDirectory=\"PreserveNewest\"\n        CopyToPublishDirectory=\"PreserveNewest\" />\n  <Content Update=\"Data/**/*.json;report-query-map.json\"\n           CopyToOutputDirectory=\"PreserveNewest\"\n           CopyToPublishDirectory=\"PreserveNewest\" />\n</ItemGroup>";
- readonly publishApi="# In MyReportApi:\ndotnet publish -c Release -o ./publish\n# Smoke-check the published output before transferring it:\ndotnet ./publish/MyReportApi.dll --urls http://localhost:5000";
- readonly publishWeb="# In my-report-web:\nnpx.cmd ng build -c production\n# Deploy CONTENTS of dist/my-report-web/browser to your web host.\n# For this website's source checkout, use dist/dss-report-ui/browser.";
- readonly productionSettings="{\n  \"reportApiUrl\": \"https://api.example.com/api/reports\"\n}";
- readonly productionCors="{\n  \"Cors\": {\n    \"Origins\": [\n      \"https://reports.example.com\"\n    ]\n  }\n}";
+ readonly prerequisites=[{title:'.NET 9 SDK',detail:'ASP.NET Core API & report rendering',tag:'API'},{title:'Node.js 24.15+',detail:'Use Node 24.15+ in the 24.x line',tag:'WEB'},{title:'Angular 22',detail:'Standalone components & HttpClient',tag:'VIEWER'}];
+ readonly examples=[{name:'Report tabs',detail:'Open invoice details with dataset parameters.',path:'/reports/report-tabs',icon:'01'},{name:'Charts',detail:'Columns, bars, areas, lines and more.',path:'/reports/charts',icon:'02'},{name:'Gauges & maps',detail:'KPIs, indicators and geographic data.',path:'/reports/visuals',icon:'03'},{name:'Report actions',detail:'Open forms in modals or reports in tabs.',path:'/reports/textbox-actions',icon:'04'}];
+ readonly apiRun='dotnet restore api\ndotnet run --project api --urls http://localhost:5000';
+ readonly webRun='cd web\nnpm.cmd install\nnpm.cmd start';
+ readonly newApi=`dotnet new web -n MyReportApi -f net9.0
+cd MyReportApi
+dotnet add package Bagojikop.Dss.Reporting.AspNetCore --version 0.1.20`;
+ readonly program=`using Dss.Reporting;
 
- readonly jsonRows="[\n  {\n    \"InvoiceId\": \"1002\",\n    \"InvoiceNo\": \"DEMO-INV-002\",\n    \"FirmId\": \"2\",\n    \"CustomerName\": \"Demo Customer\",\n    \"Amount\": 1250\n  }\n]";
- readonly sqlSettings="{\n  \"ReportSqlRoot\": \"Sql\",\n  \"ConnectionStrings\": {\n    \"Reporting\": \"Server=YOUR_SERVER;Database=YOUR_DATABASE;Integrated Security=True;Encrypt=True\"\n  }\n}";
- readonly sqlRegistration="// All three sources are built into package 0.1.23+.\n// No additional SQL provider registration or UseSqlReportData switch.\nbuilder.Services.AddDssReporting();";
- readonly sqlQuery="-- Example schema only: adapt dbo.Invoices to your database.\nSELECT InvoiceId, InvoiceNo, FirmId, CustomerName, Amount\nFROM dbo.Invoices\nWHERE InvoiceId = @invoice_id;";
- readonly sqlMap="{\n  \"reports\": {\n    \"drillthrough/InvoiceDetails.rdl\": \"invoice\"\n  },\n  \"querySets\": {\n    \"invoice\": {\n      \"TextboxActions\": {\n        \"sqlFile\": \"InvoiceDetails.sql\",\n        \"parameters\": {\n          \"invoice_id\": {\n            \"type\": \"Int64\",\n            \"source\": \"InvoiceId\",\n            \"required\": true\n          }\n        }\n      }\n    }\n  }\n}";
- readonly procedureQuery="-- Run this in your SQL Server database, not in Angular.\n-- Example schema only: adapt dbo.Invoices to your database.\nCREATE OR ALTER PROCEDURE dbo.GetInvoiceDetails\n    @invoice_id bigint\nAS\nBEGIN\n    SET NOCOUNT ON;\n    SELECT InvoiceId, InvoiceNo, FirmId, CustomerName, Amount\n    FROM dbo.Invoices\n    WHERE InvoiceId = @invoice_id;\nEND;";
- readonly procedureMap="{\n  \"reports\": {\n    \"drillthrough/InvoiceDetails.rdl\": \"invoice\"\n  },\n  \"querySets\": {\n    \"invoice\": {\n      \"TextboxActions\": {\n        \"parameters\": {\n          \"invoice_id\": {\n            \"type\": \"Int64\",\n            \"source\": \"InvoiceId\",\n            \"required\": true\n          }\n        },\n        \"storedProcedure\": \"dbo.GetInvoiceDetails\"\n      }\n    }\n  }\n}";
- readonly sqlPublish="<!-- Add inside the API project's <Project> element. -->\n<ItemGroup>\n  <Content Update=\"report-query-map.json\"\n           CopyToOutputDirectory=\"PreserveNewest\"\n           CopyToPublishDirectory=\"PreserveNewest\" />\n</ItemGroup>";
- readonly sqlDependencies="# Built-in support: no copied provider or queries project is required.\ndotnet add package Bagojikop.Dss.Reporting.AspNetCore --version 0.1.23";
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDssReporting();
+builder.Services.AddCors(options => options.AddPolicy("web", policy =>
+    policy.WithOrigins("http://localhost:4200")
+          .AllowAnyHeader().AllowAnyMethod()
+          .WithExposedHeaders("X-Report-Warnings")));
 
- readonly jsonMap="{\n  \"reports\": {\n    \"drillthrough/InvoiceDetails.rdl\": \"invoice\",\n    \"drillthrough/Invoices.rdl\": \"invoice\",\n    \"drillthrough/CustomerSummary.rdl\": \"invoice\"\n  },\n  \"querySets\": {\n    \"invoice\": {\n      \"TextboxActions\": {\n        \"jsonFile\": \"textbox_actions_demo.json\"\n      }\n    }\n  }\n}";
+var app = builder.Build();
+app.UseCors("web");
+app.MapControllers();
+app.Run();`;
+ readonly copyData=`# Copy the Reports and Data folders from this sample repository
+# into MyReportApi, then run:
+dotnet run --urls http://localhost:5000`;
+ readonly settings=JSON.stringify({ReportRoot:'Reports',ReportDataRoot:'Data',ReportDataFiles:{TextboxActions:'textbox_actions_demo.json'}},null,2);
+ readonly packageWeb=`# In an existing Angular 22 app:
+npm.cmd install @bagojikop/report-viewer@0.1.14`;
+ readonly newWeb=`npx @angular/cli@22 new my-report-web --standalone --routing --style=css
+cd my-report-web
+npm.cmd install @bagojikop/report-viewer@0.1.14`;
+ readonly bootstrap=`import {bootstrapApplication} from '@angular/platform-browser';
+import {provideHttpClient} from '@angular/common/http';
+import {Component} from '@angular/core';
+import {DssReportTabsComponent} from '@bagojikop/report-viewer';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [DssReportTabsComponent],
+  template: \`<dss-report-tabs
+    apiUrl="http://localhost:5000/api/reports"
+    reportName="drillthrough/Invoices.rdl"
+    rootTabTitle="Invoices"
+    height="100dvh" />\`,
+})
+class AppComponent {}
+
+bootstrapApplication(AppComponent, {
+  providers: [provideHttpClient()],
+}).catch(console.error);`;
+ readonly checkApi=`Invoke-RestMethod http://localhost:5000/api/reports
+# Expected: a list containing drillthrough/Invoices.rdl`;
+ readonly endpoints=[['GET','/api/reports','List available report templates'],['GET','/api/reports/definition/{report}','Read parameters and report metadata'],['POST','/api/reports/render/{report}','Render pages with parameter values'],['POST','/api/reports/pdf/{report}','Export the report as a PDF']];
 }

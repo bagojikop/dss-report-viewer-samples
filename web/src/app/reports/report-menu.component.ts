@@ -10,14 +10,6 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
       <a class="brand" routerLink="/docs/getting-started" aria-label="DSS Reporting home"><span class="brand-icon">D</span><span class="brand-text"><strong>DSS Reporting</strong><small>DEVELOPER TOOLKIT</small></span></a>
       <span class="menu-section">DOCUMENTATION</span>
       <a routerLink="/docs/getting-started" routerLinkActive="active" ariaCurrentWhenActive="page" aria-label="Getting started"><span class="menu-marker" aria-hidden="true">&#8599;</span><span class="menu-text">Getting started</span></a>
-      <a routerLink="/docs/common-settings" routerLinkActive="active" ariaCurrentWhenActive="page" aria-label="Common Settings" title="Common Settings"><span class="menu-marker" aria-hidden="true">S</span><span class="menu-text">Common Settings</span></a>
-      <a routerLink="/docs/report-builder" routerLinkActive="active" ariaCurrentWhenActive="page" aria-label="Report Builder Guide" title="Report Builder Guide"><span class="menu-marker" aria-hidden="true">B</span><span class="menu-text">Report Builder Guide</span></a>
-      <span class="menu-section examples-label">COMPANY</span>
-      <a href="https://www.dsserp.com/" target="_blank" rel="noopener noreferrer" aria-label="Dynamic Super Software main website" title="Main website: dsserp.com"><span class="menu-marker" aria-hidden="true">D</span><span class="menu-text">dsserp.com &#8599;</span></a>
-      <span class="menu-section examples-label">SHARE REPORTS</span>
-      <a routerLink="/docs/share/whatsapp" routerLinkActive="active" ariaCurrentWhenActive="page" aria-label="Share via WhatsApp" title="Share via WhatsApp"><span class="menu-marker" aria-hidden="true">W</span><span class="menu-text">WhatsApp</span></a>
-      <a routerLink="/docs/share/rcs" routerLinkActive="active" ariaCurrentWhenActive="page" aria-label="Share via RCS / SMS" title="Share via RCS / SMS"><span class="menu-marker" aria-hidden="true">R</span><span class="menu-text">RCS / SMS</span></a>
-      <a routerLink="/docs/share/email" routerLinkActive="active" ariaCurrentWhenActive="page" aria-label="Share via Mail" title="Share via Mail"><span class="menu-marker" aria-hidden="true">&#64;</span><span class="menu-text">Mail</span></a>
       <span class="menu-section examples-label">EXAMPLES</span>
       @for (report of reports; track report.path) {
         <a [routerLink]="report.path" routerLinkActive="active"
@@ -51,7 +43,6 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
 })
 export class ReportMenuComponent {
   readonly reports = [
-    {path:'/reports/report-builder',label:'Symbols and actions'},
     {path:'/reports/report-tabs',label:'Report tabs'},
     {path:'/reports/textbox-actions',label:'Textbox actions'},
     {path:'/reports/charts',label:'Charts'},

@@ -1,8 +1,7 @@
-import {bootstrapApplication} from '@angular/platform-browser';
-import {AppComponent} from './app/app.component';
-import {loadAppConfig} from './app/app.config';
-
-loadAppConfig()
-  .then(config => bootstrapApplication(AppComponent, config))
-  .then(() => { document.documentElement.dataset['dssReady'] = 'true'; })
-  .catch(console.error);
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { apiLoadingInterceptor } from './app/api-loading.interceptor';
+import { provideRouter } from '@angular/router';
+import { routes } from './app/app.routes';
+import { AppComponent } from './app/app.component';
+bootstrapApplication(AppComponent,{providers:[provideHttpClient(withInterceptors([apiLoadingInterceptor])),provideRouter(routes)]}).catch(console.error);

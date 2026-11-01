@@ -1,5 +1,3 @@
-import {inject} from '@angular/core';
-import {REPORT_API_URL} from '../report-api.config';
 import {Component} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {DssReportViewerComponent} from '@bagojikop/report-viewer';
@@ -22,7 +20,7 @@ import {visualCatalog} from './visual-catalog';
         }
       </select>
     </div>
-    <dss-report-viewer [apiUrl]="apiUrl"
+    <dss-report-viewer apiUrl="http://localhost:5000/api/reports"
       [reportName]="reportName" [reportParameters]="parameters"
       [showHeader]="false" height="calc(var(--sample-preview-height, 100dvh) - 56px)" />
   `,
@@ -31,7 +29,6 @@ import {visualCatalog} from './visual-catalog';
     @media print { .visual-toolbar { display:none; } }`],
 })
 export class VisualsReportComponent {
-  readonly apiUrl=inject(REPORT_API_URL);
   readonly catalog = visualCatalog;
   readonly families = [...new Set(visualCatalog.map(example => example.family))];
   reportName = 'visuals/GaugeDashboard.rdl';

@@ -1,5 +1,3 @@
-import {inject} from '@angular/core';
-import {REPORT_API_URL} from '../report-api.config';
 import {Component} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {DssReportViewerComponent} from '@bagojikop/report-viewer';
@@ -22,7 +20,7 @@ import {chartCatalog} from './chart-catalog';
         }
       </select>
     </div>
-    <dss-report-viewer [apiUrl]="apiUrl"
+    <dss-report-viewer apiUrl="http://localhost:5000/api/reports"
       [reportName]="reportName" [reportParameters]="parameters"
       [showHeader]="false" height="calc(var(--sample-preview-height, 100dvh) - 56px)" />
   `,
@@ -31,7 +29,6 @@ import {chartCatalog} from './chart-catalog';
     @media print { .chart-toolbar { display:none; } }`],
 })
 export class ChartsReportComponent {
-  readonly apiUrl=inject(REPORT_API_URL);
   readonly catalog = chartCatalog;
   readonly families = [...new Set(chartCatalog.map(chart => chart.family))];
   reportName = 'charts/Column-Plain.rdl';

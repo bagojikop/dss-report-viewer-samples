@@ -7,10 +7,7 @@
     "build": "ng build samples",
     "sources": "node scripts/generate-sample-sources.mjs",
     "prestart": "npm run sources",
-    "prebuild": "npm run sources",
-    "seo": "node scripts/generate-seo.mjs && node scripts/prerender-docs.mjs",
-    "postbuild": "npm run seo",
-    "build:production": "npm run sources && ng build samples -c production && npm run seo"
+    "prebuild": "npm run sources"
   },
   "dependencies": {
     "@angular/animations": "^22.0.0",
