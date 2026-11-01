@@ -10,6 +10,14 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
       <a class="brand" routerLink="/docs/getting-started" aria-label="DSS Reporting home"><span class="brand-icon">D</span><span class="brand-text"><strong>DSS Reporting</strong><small>DEVELOPER TOOLKIT</small></span></a>
       <span class="menu-section">DOCUMENTATION</span>
       <a routerLink="/docs/getting-started" routerLinkActive="active" ariaCurrentWhenActive="page" aria-label="Getting started"><span class="menu-marker" aria-hidden="true">&#8599;</span><span class="menu-text">Getting started</span></a>
+      <a routerLink="/docs/common-settings" routerLinkActive="active" ariaCurrentWhenActive="page" aria-label="Common Settings" title="Common Settings"><span class="menu-marker" aria-hidden="true">S</span><span class="menu-text">Common Settings</span></a>
+      <a routerLink="/docs/report-builder" routerLinkActive="active" ariaCurrentWhenActive="page" aria-label="Report Builder Guide" title="Report Builder Guide"><span class="menu-marker" aria-hidden="true">B</span><span class="menu-text">Report Builder Guide</span></a>
+      <span class="menu-section examples-label">COMPANY</span>
+      <a href="https://www.dsserp.com/" target="_blank" rel="noopener noreferrer" aria-label="Dynamic Super Software main website" title="Main website: dsserp.com"><span class="menu-marker" aria-hidden="true">D</span><span class="menu-text">dsserp.com &#8599;</span></a>
+      <span class="menu-section examples-label">SHARE REPORTS</span>
+      <a routerLink="/docs/share/whatsapp" routerLinkActive="active" ariaCurrentWhenActive="page" aria-label="Share via WhatsApp" title="Share via WhatsApp"><span class="menu-marker" aria-hidden="true">W</span><span class="menu-text">WhatsApp</span></a>
+      <a routerLink="/docs/share/rcs" routerLinkActive="active" ariaCurrentWhenActive="page" aria-label="Share via RCS / SMS" title="Share via RCS / SMS"><span class="menu-marker" aria-hidden="true">R</span><span class="menu-text">RCS / SMS</span></a>
+      <a routerLink="/docs/share/email" routerLinkActive="active" ariaCurrentWhenActive="page" aria-label="Share via Mail" title="Share via Mail"><span class="menu-marker" aria-hidden="true">&#64;</span><span class="menu-text">Mail</span></a>
       <span class="menu-section examples-label">EXAMPLES</span>
       @for (report of reports; track report.path) {
         <a [routerLink]="report.path" routerLinkActive="active"
@@ -18,7 +26,16 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
     </nav>
   `,
   styles: [`
-    :host { display:block;min-width:0;background:#111c2f;border-right:1px solid #1c2b43;overflow-y:auto;color:#91a1bb;font:12px Arial,sans-serif; }
+    :host { display:block;min-width:0;background:#111c2f;border-right:1px solid #1c2b43;overflow-y:auto;overflow-x:hidden;scrollbar-gutter:stable;overscroll-behavior-y:contain;color:#91a1bb;font:12px Arial,sans-serif; }
+    :host::-webkit-scrollbar { width:8px; }
+    :host::-webkit-scrollbar-track { background:transparent; margin-block:12px; }
+    :host::-webkit-scrollbar-thumb { background:#344761;border:2px solid #111c2f;border-radius:999px; }
+    :host::-webkit-scrollbar-thumb:hover { background:#607da5; }
+    :host::-webkit-scrollbar-thumb:active { background:#88aef2; }
+    @supports not selector(::-webkit-scrollbar) {
+      :host { scrollbar-width:thin;scrollbar-color:#344761 #111c2f; }
+      :host:hover, :host:focus-within { scrollbar-color:#607da5 #111c2f; }
+    }
     nav { display:flex;flex-direction:column;gap:5px;padding:24px 13px; }
     a { display:flex;align-items:center;gap:11px;padding:11px 13px;border-radius:7px;color:#93a3bd;text-decoration:none;font-size:12px;font-weight:400; }
     a:hover { background:#1c2b43;color:#e5edfa; }
@@ -34,6 +51,7 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
 })
 export class ReportMenuComponent {
   readonly reports = [
+    {path:'/reports/report-builder',label:'Symbols and actions'},
     {path:'/reports/report-tabs',label:'Report tabs'},
     {path:'/reports/textbox-actions',label:'Textbox actions'},
     {path:'/reports/charts',label:'Charts'},

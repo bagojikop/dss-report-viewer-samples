@@ -1,0 +1,441 @@
+{
+  "reports": {
+    "charts/Area-PercentStacked-3D.rdl": "charts/Area-PercentStacked-3D",
+    "charts/Area-PercentStacked.rdl": "charts/Area-PercentStacked",
+    "charts/Area-Plain-3D.rdl": "charts/Area-Plain-3D",
+    "charts/Area-Plain.rdl": "charts/Area-Plain",
+    "charts/Area-Smooth.rdl": "charts/Area-Smooth",
+    "charts/Area-Stacked-3D.rdl": "charts/Area-Stacked-3D",
+    "charts/Area-Stacked.rdl": "charts/Area-Stacked",
+    "charts/Bar-DataBar.rdl": "charts/Bar-DataBar",
+    "charts/Bar-PercentStacked-3D.rdl": "charts/Bar-PercentStacked-3D",
+    "charts/Bar-PercentStacked.rdl": "charts/Bar-PercentStacked",
+    "charts/Bar-Plain-3D.rdl": "charts/Bar-Plain-3D",
+    "charts/Bar-Plain.rdl": "charts/Bar-Plain",
+    "charts/Bar-Stacked-3D.rdl": "charts/Bar-Stacked-3D",
+    "charts/Bar-Stacked.rdl": "charts/Bar-Stacked",
+    "charts/Column-Cylinder-3D.rdl": "charts/Column-Cylinder-3D",
+    "charts/Column-Line.rdl": "charts/Column-Line",
+    "charts/Column-Negative.rdl": "charts/Column-Negative",
+    "charts/Column-PercentStacked-3D.rdl": "charts/Column-PercentStacked-3D",
+    "charts/Column-PercentStacked.rdl": "charts/Column-PercentStacked",
+    "charts/Column-Plain-3D.rdl": "charts/Column-Plain-3D",
+    "charts/Column-Plain.rdl": "charts/Column-Plain",
+    "charts/Column-Stacked-3D.rdl": "charts/Column-Stacked-3D",
+    "charts/Column-Stacked.rdl": "charts/Column-Stacked",
+    "charts/Line-Markers.rdl": "charts/Line-Markers",
+    "charts/Line-Plain.rdl": "charts/Line-Plain",
+    "charts/Line-Smooth.rdl": "charts/Line-Smooth",
+    "charts/Line-Sparkline.rdl": "charts/Line-Sparkline",
+    "charts/Line-Stepped.rdl": "charts/Line-Stepped",
+    "charts/Polar-Plain.rdl": "charts/Polar-Plain",
+    "charts/Polar-Radar-Area.rdl": "charts/Polar-Radar-Area",
+    "charts/Polar-Radar.rdl": "charts/Polar-Radar",
+    "charts/Range-Bar.rdl": "charts/Range-Bar",
+    "charts/Range-BoxPlot.rdl": "charts/Range-BoxPlot",
+    "charts/Range-Candlestick.rdl": "charts/Range-Candlestick",
+    "charts/Range-Column.rdl": "charts/Range-Column",
+    "charts/Range-ErrorBar.rdl": "charts/Range-ErrorBar",
+    "charts/Range-Plain.rdl": "charts/Range-Plain",
+    "charts/Range-Smooth.rdl": "charts/Range-Smooth",
+    "charts/Range-Stock.rdl": "charts/Range-Stock",
+    "charts/Scatter-Bubble.rdl": "charts/Scatter-Bubble",
+    "charts/Scatter-Plain.rdl": "charts/Scatter-Plain",
+    "charts/Shape-CalloutPie.rdl": "charts/Shape-CalloutPie",
+    "charts/Shape-Doughnut-3D.rdl": "charts/Shape-Doughnut-3D",
+    "charts/Shape-Doughnut.rdl": "charts/Shape-Doughnut",
+    "charts/Shape-ExplodedDoughnut-3D.rdl": "charts/Shape-ExplodedDoughnut-3D",
+    "charts/Shape-ExplodedDoughnut.rdl": "charts/Shape-ExplodedDoughnut",
+    "charts/Shape-ExplodedPie-3D.rdl": "charts/Shape-ExplodedPie-3D",
+    "charts/Shape-ExplodedPie.rdl": "charts/Shape-ExplodedPie",
+    "charts/Shape-Funnel.rdl": "charts/Shape-Funnel",
+    "charts/Shape-Pie-3D.rdl": "charts/Shape-Pie-3D",
+    "charts/Shape-Pie.rdl": "charts/Shape-Pie",
+    "charts/Shape-Pyramid.rdl": "charts/Shape-Pyramid",
+    "charts/Shape-Sunburst.rdl": "charts/Shape-Sunburst",
+    "charts/Shape-TreeMap.rdl": "charts/Shape-TreeMap",
+    "drillthrough/InvoiceDetails.rdl": "drillthrough/InvoiceDetails",
+    "drillthrough/Invoices.rdl": "drillthrough/Invoices",
+    "TextboxActions.rdl": "TextboxActions",
+    "visuals/DataBars.rdl": "visuals/DataBars",
+    "visuals/DataBarsStacked.rdl": "visuals/DataBarsStacked",
+    "visuals/GaugeDashboard.rdl": "visuals/GaugeDashboard",
+    "visuals/GaugeLinear.rdl": "visuals/GaugeLinear",
+    "visuals/GaugeRadial.rdl": "visuals/GaugeRadial",
+    "visuals/GaugeRadialBar.rdl": "visuals/GaugeRadialBar",
+    "visuals/GaugeVertical.rdl": "visuals/GaugeVertical",
+    "visuals/Indicators.rdl": "visuals/Indicators",
+    "visuals/MapMarkers.rdl": "visuals/MapMarkers",
+    "visuals/MapRegions.rdl": "visuals/MapRegions",
+    "visuals/MapRoutes.rdl": "visuals/MapRoutes",
+    "visuals/SparklineArea.rdl": "visuals/SparklineArea",
+    "visuals/SparklineColumn.rdl": "visuals/SparklineColumn",
+    "visuals/SparklineLine.rdl": "visuals/SparklineLine"
+  },
+  "querySets": {
+    "charts/Area-PercentStacked-3D": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Area-PercentStacked": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Area-Plain-3D": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Area-Plain": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Area-Smooth": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Area-Stacked-3D": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Area-Stacked": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Bar-DataBar": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Bar-PercentStacked-3D": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Bar-PercentStacked": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Bar-Plain-3D": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Bar-Plain": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Bar-Stacked-3D": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Bar-Stacked": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Column-Cylinder-3D": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Column-Line": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Column-Negative": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Column-PercentStacked-3D": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Column-PercentStacked": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Column-Plain-3D": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Column-Plain": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Column-Stacked-3D": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Column-Stacked": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Line-Markers": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Line-Plain": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Line-Smooth": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Line-Sparkline": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Line-Stepped": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Polar-Plain": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Polar-Radar-Area": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Polar-Radar": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Range-Bar": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Range-BoxPlot": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Range-Candlestick": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Range-Column": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Range-ErrorBar": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Range-Plain": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Range-Smooth": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Range-Stock": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Scatter-Bubble": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Scatter-Plain": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Shape-CalloutPie": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Shape-Doughnut-3D": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Shape-Doughnut": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Shape-ExplodedDoughnut-3D": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Shape-ExplodedDoughnut": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Shape-ExplodedPie-3D": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Shape-ExplodedPie": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Shape-Funnel": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Shape-Pie-3D": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Shape-Pie": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Shape-Pyramid": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Shape-Sunburst": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "charts/Shape-TreeMap": {
+      "ChartGallery": {
+        "jsonFile": "chart_gallery.json"
+      }
+    },
+    "drillthrough/InvoiceDetails": {
+      "TextboxActions": {
+        "jsonFile": "textbox_actions_demo.json"
+      }
+    },
+    "drillthrough/Invoices": {
+      "TextboxActions": {
+        "jsonFile": "textbox_actions_demo.json"
+      }
+    },
+    "TextboxActions": {
+      "TextboxActions": {
+        "jsonFile": "textbox_actions_demo.json"
+      }
+    },
+    "visuals/DataBars": {
+      "VisualKpiSummary": {
+        "jsonFile": "visual_kpi_summary.json"
+      }
+    },
+    "visuals/DataBarsStacked": {
+      "VisualKpiSummary": {
+        "jsonFile": "visual_kpi_summary.json"
+      }
+    },
+    "visuals/GaugeDashboard": {
+      "VisualKpiSummary": {
+        "jsonFile": "visual_kpi_summary.json"
+      }
+    },
+    "visuals/GaugeLinear": {
+      "VisualKpiSummary": {
+        "jsonFile": "visual_kpi_summary.json"
+      }
+    },
+    "visuals/GaugeRadial": {
+      "VisualKpiSummary": {
+        "jsonFile": "visual_kpi_summary.json"
+      }
+    },
+    "visuals/GaugeRadialBar": {
+      "VisualKpiSummary": {
+        "jsonFile": "visual_kpi_summary.json"
+      }
+    },
+    "visuals/GaugeVertical": {
+      "VisualKpiSummary": {
+        "jsonFile": "visual_kpi_summary.json"
+      }
+    },
+    "visuals/Indicators": {
+      "VisualKpiSummary": {
+        "jsonFile": "visual_kpi_summary.json"
+      }
+    },
+    "visuals/MapMarkers": {
+      "VisualMapLocations": {
+        "jsonFile": "visual_map_locations.json"
+      }
+    },
+    "visuals/MapRegions": {
+      "VisualMapRegions": {
+        "jsonFile": "visual_map_regions.json"
+      },
+      "VisualMapLocations": {
+        "jsonFile": "visual_map_locations.json"
+      },
+      "VisualMapRoutes": {
+        "jsonFile": "visual_map_routes.json"
+      }
+    },
+    "visuals/MapRoutes": {
+      "VisualMapLocations": {
+        "jsonFile": "visual_map_locations.json"
+      },
+      "VisualMapRoutes": {
+        "jsonFile": "visual_map_routes.json"
+      }
+    },
+    "visuals/SparklineArea": {
+      "VisualKpiHistory": {
+        "jsonFile": "visual_kpi_history.json"
+      }
+    },
+    "visuals/SparklineColumn": {
+      "VisualKpiHistory": {
+        "jsonFile": "visual_kpi_history.json"
+      }
+    },
+    "visuals/SparklineLine": {
+      "VisualKpiHistory": {
+        "jsonFile": "visual_kpi_history.json"
+      }
+    }
+  }
+}
