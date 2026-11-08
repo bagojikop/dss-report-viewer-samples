@@ -21,9 +21,10 @@ import {ApiLoadingComponent} from './api-loading.component';
   `,
   styles: [`
     .report-app { display:grid; grid-template-columns:220px minmax(0,1fr); height:100dvh; overflow:hidden; }
-    .report-content { position:relative; min-width:0; overflow:hidden; }
+    .report-content { position:relative; min-width:0; overflow:hidden; display:flex; flex-direction:column; }
+    app-sample-workspace { flex:1; min-height:0; height:auto; }
     @media (max-width:700px) { .report-app { grid-template-columns:60px minmax(0,1fr); } }
-    @media print { .report-app { display:block; height:auto; overflow:visible; } .report-content { overflow:visible; } }
+    @media print { .report-app { display:block; height:auto; overflow:visible; } .report-content { overflow:visible; display:block; }  }
   `],
 })
 export class AppComponent {

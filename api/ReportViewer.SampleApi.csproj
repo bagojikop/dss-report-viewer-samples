@@ -1,6 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup><TargetFramework>net9.0</TargetFramework><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings></PropertyGroup>
-  <ItemGroup><PackageReference Include="Bagojikop.Dss.Reporting.AspNetCore" Version="0.1.23" /></ItemGroup>
+  <PropertyGroup>
+    <UseLocalDssReporting Condition="'$(UseLocalDssReporting)' == ''">false</UseLocalDssReporting>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(UseLocalDssReporting)' != 'true'"><PackageReference Include="Bagojikop.Dss.Reporting.AspNetCore" Version="0.1.23" /></ItemGroup>
+  <ItemGroup Condition="'$(UseLocalDssReporting)' == 'true'">
+    <ProjectReference Include="../../../libraries/Dss.Reporting.AspNetCore/Dss.Reporting.AspNetCore.csproj" />
+  </ItemGroup>
   <ItemGroup>
     <None Update="Reports/**/*.rdl;Reports/**/*.rdlc" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
     <Content Update="Data/**/*.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />

@@ -7,9 +7,10 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
   imports: [RouterLink, RouterLinkActive],
   template: `
     <nav aria-label="Reports">
-      <a class="brand" routerLink="/docs/getting-started" aria-label="DSS Reporting home"><span class="brand-icon">D</span><span class="brand-text"><strong>DSS Reporting</strong><small>DEVELOPER TOOLKIT</small></span></a>
-      <span class="menu-section">DOCUMENTATION</span>
-      <a routerLink="/docs/getting-started" routerLinkActive="active" ariaCurrentWhenActive="page" aria-label="Getting started"><span class="menu-marker" aria-hidden="true">&#8599;</span><span class="menu-text">Getting started</span></a>
+      <a class="brand" routerLink="/docs/getting-started" aria-label="DSS Reporting home"><span class="brand-icon">D</span><span class="brand-text"><strong>DSS Reporting</strong><small>GITHUB SAMPLES</small></span></a>
+      <span class="menu-section">START HERE</span>
+      <a routerLink="/docs/getting-started" routerLinkActive="active" ariaCurrentWhenActive="page" title="Setup"><span class="menu-marker">1</span><span class="menu-text">Setup</span></a>
+      <a routerLink="/docs/report-builder" routerLinkActive="active" ariaCurrentWhenActive="page" title="Symbols guide"><span class="menu-marker">?</span><span class="menu-text">Symbols guide</span></a>
       <span class="menu-section examples-label">EXAMPLES</span>
       @for (report of reports; track report.path) {
         <a [routerLink]="report.path" routerLinkActive="active"
@@ -43,9 +44,8 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
 })
 export class ReportMenuComponent {
   readonly reports = [
-    {path:'/reports/report-tabs',label:'Report tabs'},
-    {path:'/reports/textbox-actions',label:'Textbox actions'},
-    {path:'/reports/charts',label:'Charts'},
-    {path:'/reports/visuals',label:'Gauges & maps'},
+    {path:'/reports/viewer',label:'Report Viewer'},
+    {path:'/reports/report-tabs',label:'Report Tabs'},
+    {path:'/reports/report-builder',label:'Dss.Reporting.Symbols'},
   ];
 }
