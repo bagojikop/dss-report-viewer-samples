@@ -2,6 +2,22 @@
 
 A small Angular + ASP.NET Core application demonstrating **Report Viewer**, **Report Tabs**, and **Dss.Reporting.Symbols**. It contains consuming application code, report templates, and fictional invoice data. Engine and viewer library implementations are not included.
 
+## Packages
+
+| Package | Registry | Latest version |
+| --- | --- | --- |
+| Angular report viewer | [@bagojikop/report-viewer on npm](https://www.npmjs.com/package/@bagojikop/report-viewer) | [![npm version](https://img.shields.io/npm/v/%40bagojikop%2Freport-viewer)](https://www.npmjs.com/package/@bagojikop/report-viewer) |
+| ASP.NET Core reporting engine | [Bagojikop.Dss.Reporting.AspNetCore on NuGet](https://www.nuget.org/packages/Bagojikop.Dss.Reporting.AspNetCore/) | [![NuGet version](https://img.shields.io/nuget/v/Bagojikop.Dss.Reporting.AspNetCore)](https://www.nuget.org/packages/Bagojikop.Dss.Reporting.AspNetCore/) |
+| Report symbols | [Bagojikop.Dss.Reporting.Symbols on NuGet](https://www.nuget.org/packages/Bagojikop.Dss.Reporting.Symbols/) | [![NuGet version](https://img.shields.io/nuget/v/Bagojikop.Dss.Reporting.Symbols)](https://www.nuget.org/packages/Bagojikop.Dss.Reporting.Symbols/) |
+
+```powershell
+npm install @bagojikop/report-viewer
+dotnet add package Bagojikop.Dss.Reporting.AspNetCore
+dotnet add package Bagojikop.Dss.Reporting.Symbols
+```
+
+These links point to npmjs.org and nuget.org. GitHub's **Packages** panel lists packages hosted on GitHub Packages, so it can remain empty when packages are distributed through these registries.
+
 ## Run
 
 Prerequisites: .NET 9 SDK and Node.js 24.15+ (24.x).
